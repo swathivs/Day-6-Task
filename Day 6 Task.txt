@@ -1,0 +1,78 @@
+1. The class Movie is stated below. An instance of class Movie represents a film. This class has the following three properties:
+
+title, which is a String representing the title of the movie
+studio, which is a String representing the studio that made the movie
+rating, which is a String representing the rating of the movie (i.e. PG­13, R, etc)
+a) Write a constructor for the class Movie, which takes a String representing the title of the movie, a String representing the studio, and a String representing the rating as its arguments, and sets the respective class properties to these values.
+
+b) The constructor for the class Movie will set the class property rating to "PG" as default when no rating is provided.
+
+c) Write a method getPG, which takes an array of base type Movie as its argument, and returns a new array of only those movies in the input array with a rating of "PG". You may assume the input array is full of Movie instances. The returned array need not be full.
+
+d) Write a piece of code that creates an instance of the class Movie with the title “Casino Royale”, the studio “Eon Productions”, and the rating “PG­13”
+
+class movie{
+constructor(title,studio,rating){
+this.title=title,
+this.studio=studio,
+this.rating=rating
+if(this.rating==undefined){
+this.rating="PG";
+}
+else{
+this.rating=rating
+}
+}
+getPG(arr){
+var x=[];
+for(var i=0;i<arr.length;i++){
+if(arr[i].rating=="PG"){
+x.push(arr[i])
+}
+}
+return x;
+}
+}
+var flim=new movie("Casino Royale","Eon Productions","PG13")
+var flim1=new movie("abc","xyz")
+var flim2=new movie("abc1","xyz1","PG20")
+var flim3=new movie("abc2","xyz2")
+let arr=[flim,flim1,flim2,flim3]
+console.log(flim2);
+console.log(arr);
+console.log(flim1.getPG(arr));
+
+3. Write a “person” class to hold all the details.
+
+class person{
+constructor(Name,Age,DOB,Height,Weight,Phone,Email,Place){
+this.Name=Name,
+this.Age=Age,
+this.DOB=DOB,
+this.Height=Height,
+this.Weight=Weight,
+this.Phone=Phone,
+this.Email=Email,
+this.Place=Place
+}
+}
+var data=new person("Swathi",25,"07/09/1997",156,60,1234567890,"swathivs1406@gmail.com","Sivagangai");
+console.log(data);
+
+4. write a class to calculate the uber price.
+
+class uberPrice{
+constructor(km){
+this.km=km,
+this.actualPrice=km*10
+}
+disAmount(){
+console.log(`Actual price: ${this.actualPrice}`);
+var discount=(25*this.actualPrice)/100;
+console.log(`Discount: ${discount}`)
+var finalPrice=this.actualPrice-discount;
+return `Final price: ${finalPrice}`;  
+}   
+}
+var amount=new uberPrice(10);
+console.log(amount.disAmount());
